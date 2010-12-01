@@ -1,0 +1,6 @@
+%h2 W koszyku masz
+-for item in @cart.line_items
+  %p
+    = item.quantity
+    sztuk produktu: 
+    = item.product.name

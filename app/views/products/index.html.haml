@@ -1,0 +1,17 @@
+%h2 Produkty
+%p= link_to "Nowy produkt", new_product_path
+%p= link_to "Wyloguj mnie", destroy_user_session_path
+%hr
+- form_for @search, :url => products_path, :html => {:method => :get} do |f|
+  = render :partial => "form2", :locals => {:f => f}
+  = f.submit "szukaj"
+%hr
+- @products.each do |product|
+  %b= product.name
+  %p= product.price
+  %p= button_to "Do koszyka!", line_items_path(:product_id => product)
+  %hr
+%p= will_paginate @products
+
+
+

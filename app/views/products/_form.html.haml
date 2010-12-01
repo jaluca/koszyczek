@@ -1,0 +1,14 @@
+- if @product.errors.any?
+  #errorExplanation
+    %h2
+      = pluralize(@product.errors.count, "error")
+    %ul  
+    - @product.errors.full_messages.each do |msg|
+      %li= msg
+%p= f.label :name, "Nazwa produktu"
+%p= f.text_field :name
+%p= f.label :description, "Opis produktu"
+%p= f.text_area :description
+%p= f.label :price, "Cena:"
+%p= f.text_field :price
+
